@@ -10,7 +10,7 @@
 
 #### Step 2
 
-`cd Gatsby-Ecommerce`
+`cd git-cosmic`
 
 #### Step 3
 
