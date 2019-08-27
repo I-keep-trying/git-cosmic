@@ -1,10 +1,12 @@
 # Gatsby-Cosmic-Ecommerce
+
 #🎇✨💥💫💮
+
 ## Instructions
 
 #### Step 1
 
-`git clone https://github.com/I-keep-trying/Gatsby-Ecommerce.git`
+`git clone https://github.com/I-keep-trying/git-cosmic.git`
 
 #### Step 2
 
