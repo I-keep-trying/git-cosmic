@@ -1,7 +1,7 @@
 # Gatsby-Cosmic-Ecommerce
 
 <p align="center">
-<img src="https://web-assets.cosmicjs.com/images/cosmicjs-logo.svg" alt="" width="60">
+<img src="./src/images/CosmicJS.png" alt="" width="60">
 <a href="https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby#readme"><img src="./src/images/gatsby-icon.png" alt="" width="60"></a>
 <a href="https://react-bootstrap.github.io/"><img src="./src/images/react-bootstrap.png" alt="" width="60"></a>
 <a href="https://github.com/netlify/cli"><img src="./src/images/netlify.png" alt="" width="60"></a>
