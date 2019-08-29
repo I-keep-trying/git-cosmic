@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import Iphone8 from "./iPhones/iphone8"
-import Iphonex from "./iPhones/iphonex"
-import Iphonexs from "./iPhones/iphonexs"
+import Scarf1 from "./scarves/scarf1"
+import Scarf2 from "./scarves/scarf2"
+import Scarf3 from "./scarves/scarf3"
+import Scarf4 from "./scarves/scarf4"
+import Scarf5 from "./scarves/scarf5"
 import "./layout.css";
-import { Modal, Button } from 'react-bootstrap';
+import { Row, Col, Container, Modal, Button } from 'react-bootstrap';
 import { Link } from "gatsby";
 import _ from "lodash";
 
@@ -12,45 +14,64 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            iPhone8Show: false,
-            iPhoneXShow: false,
-            iPhoneXSShow: false,
+            scarf1Show: false,
+            scarf2Show: false,
+            scarf3Show: false,
+            scarf4Show: false,
+            scarf5Show: false,
             alert: "",
         };
-        this.handleiPhone8Show = this.handleiPhone8Show.bind(this);
-        this.handleiPhone8Close = this.handleiPhone8Close.bind(this);
-        this.handleiPhoneXShow = this.handleiPhoneXShow.bind(this);
-        this.handleiPhoneXClose = this.handleiPhoneXClose.bind(this);
-        this.handleiPhoneXSShow = this.handleiPhoneXSShow.bind(this);
-        this.handleiPhoneXSClose = this.handleiPhoneXSClose.bind(this);
+        this.handlescarf1Show = this.handlescarf1Show.bind(this);
+        this.handlescarf1Close = this.handlescarf1Close.bind(this);
+        this.handlescarf2Show = this.handlescarf2Show.bind(this);
+        this.handlescarf2Close = this.handlescarf2Close.bind(this);
+        this.handlescarf3Show = this.handlescarf3Show.bind(this);
+        this.handlescarf3Close = this.handlescarf3Close.bind(this);
+        this.handlescarf4Show = this.handlescarf4Show.bind(this);
+        this.handlescarf4Close = this.handlescarf4Close.bind(this);
+        this.handlescarf5Show = this.handlescarf5Show.bind(this);
+        this.handlescarf5Close = this.handlescarf5Close.bind(this);
     }
 
-    handleiPhone8Close() {
-        this.setState({ iPhone8Show: false });
+    handlescarf1Close() {
+        this.setState({ scarf1Show: false });
       }
     
-      handleiPhone8Show() {
-        this.setState({ iPhone8Show: true });
+      handlescarf1Show() {
+        this.setState({ scarf1Show: true });
       }
-      handleiPhoneXClose() {
-        this.setState({ iPhoneXShow: false });
-      }
-    
-      handleiPhoneXShow() {
-        this.setState({ iPhoneXShow: true });
-      }
-      handleiPhoneXSClose() {
-        this.setState({ iPhoneXSShow: false });
+      handlescarf2Close() {
+        this.setState({ scarf2Show: false });
       }
     
-      handleiPhoneXSShow() {
-        this.setState({ iPhoneXSShow: true });
+      handlescarf2Show() {
+        this.setState({ scarf2Show: true });
       }
-
+      handlescarf3Close() {
+        this.setState({ scarf3Show: false });
+      }
+    
+      handlescarf3Show() {
+        this.setState({ scarf3Show: true });
+      }
+      handlescarf4Close() {
+        this.setState({ scarf4Show: false });
+      }
+    
+      handlescarf4Show() {
+        this.setState({ scarf4Show: true });
+      }
+      handlescarf5Close() {
+        this.setState({ scarf5Show: false });
+      }
+    
+      handlescarf5Show() {
+        this.setState({ scarf5Show: true });
+      }
     //   Add products to cart
       addToCart = (e)=>
       {
-        var product = e.target.value;
+        let product = e.target.value;
         this.setState({alert: "Product Added to Cart"});
         setTimeout(
             function() {
@@ -65,7 +86,7 @@ class Home extends Component {
 
       componentDidMount()
       {
-        var arr = _.values(JSON.parse(localStorage.getItem('products')));
+        let arr = _.values(JSON.parse(localStorage.getItem('products')));
         if(arr.length > 0)
         {
         this.products = JSON.parse(localStorage.getItem('products'));
@@ -74,116 +95,171 @@ class Home extends Component {
 
     render() {
         return (
-            
-            <div>
+            <>
+            <Container>
                  <p>{this.state.alert}</p>
-             <div className="row">
-             <div className="col-sm-5"></div>
-             <div className="col-sm-4"></div>
-             <div className="col-sm-2 cart"><Link to="/cart/"><button className="btn btn-primary margin-button">
-            View Cart</button></Link>
-                </div>               
-             
-             </div>
+             <Row className="row">
+             <Col className="col"></Col>
+             <Col className="col"></Col>
+             <Col className="col cart">
+               <Link to="/cart/">
+                 <button className="btn btn-primary margin-button">
+            View Cart
+            </button>
+            </Link>
+            </Col>               
+             </Row>
                
-            <div className="row top-row-margin">
-            <div className="col-sm-4 image-pointer" onClick={this.handleiPhone8Show}>
-            <Iphone8/>
-                </div>
-                <div className="col-sm-4 image-pointer" onClick={this.handleiPhoneXShow}>
-            <Iphonex/>
-                </div>
-                <div className="col-sm-4 image-pointer" onClick={this.handleiPhoneXSShow}>
-            <Iphonexs/>
-                </div>
-                </div>
-                <div className="row">
-                 <div className="col-sm-4 product-name" onClick={this.handleiPhone8Show}>$849</div>
-                 <div className="col-sm-4 product-name" onClick={this.handleiPhoneXShow}>$1149</div>
-                 <div className="col-sm-4 product-name" onClick={this.handleiPhoneXSShow}>$1449</div>                
-                </div>
-                <div className="row">
-                 <div className="col-sm-4 product-name" onClick={this.handleiPhone8Show}>iPhone 8</div>
-                 <div className="col-sm-4 product-name" onClick={this.handleiPhoneXShow}>iPhone X</div>
-                 <div className="col-sm-4 product-name" onClick={this.handleiPhoneXSShow}>iPhone XS</div>                
-                </div>
-                <div className="row">
-                 <div className="col-sm-4 product-name"><button className="btn btn-primary margin-button" onClick={this.addToCart} value={"iphone8"}>Add to Cart</button></div>
-                 <div className="col-sm-4 product-name"><button className="btn btn-primary margin-button" onClick={this.addToCart} value={"iphoneX"}>Add to Cart</button></div>
-                 <div className="col-sm-4 product-name"><button className="btn btn-primary margin-button" onClick={this.addToCart} value={"iphoneXS"}>Add to Cart</button></div>               
-                </div>
+            <Row className="row top-row-margin">
+            <Col className="col image-pointer" onClick={this.handlescarf1Show}>
+            <Scarf1/>
+                </Col>
+                <Col className="col image-pointer" onClick={this.handlescarf2Show}>
+            <Scarf2/>
+                </Col>
+                <Col className="col image-pointer" onClick={this.handlescarf3Show}>
+            <Scarf3/>
+                </Col>
+                <Col className="col image-pointer" onClick={this.handlescarf4Show}>
+            <Scarf4/>
+                </Col>
+                <Col className="col image-pointer" onClick={this.handlescarf5Show}>
+            <Scarf5/>
+                </Col>
+                </Row>
+
+                <Row className="row">
+                 <Col className="col product-name" onClick={this.handlescarf1Show}>$849</Col>
+                 <Col className="col product-name" onClick={this.handlescarf2Show}>$1149</Col>
+                 <Col className="col product-name" onClick={this.handlescarf3Show}>$1449</Col> 
+                 <Col className="col product-name" onClick={this.handlescarf4Show}>$1449</Col>                
+                 <Col className="col product-name" onClick={this.handlescarf5Show}>$1449</Col>                               
+                </Row>
+
+                <Row className="row">
+                 <Col className="col product-name" onClick={this.handlescarf1Show}>Scarf 1</Col>
+                 <Col className="col product-name" onClick={this.handlescarf2Show}>Scarf 2</Col>
+                 <Col className="col product-name" onClick={this.handlescarf3Show}>Scarf 3</Col> 
+                 <Col className="col product-name" onClick={this.handlescarf4Show}>Scarf 4</Col>                
+                 <Col className="col product-name" onClick={this.handlescarf5Show}>Scarf 5</Col>                               
+                </Row>
+
+                <Row className="row">
+                 <Col className="col product-name"><button className="btn btn-primary margin-button" onClick={this.addToCart} value={"scarf1"}>Add to Cart</button></Col>
+                 <Col className="col product-name"><button className="btn btn-primary margin-button" onClick={this.addToCart} value={"scarf2"}>Add to Cart</button></Col>
+                 <Col className="col product-name"><button className="btn btn-primary margin-button" onClick={this.addToCart} value={"scarf3"}>Add to Cart</button></Col> 
+                 <Col className="col product-name"><button className="btn btn-primary margin-button" onClick={this.addToCart} value={"scarf4"}>Add to Cart</button></Col>               
+                 <Col className="col product-name"><button className="btn btn-primary margin-button" onClick={this.addToCart} value={"scarf5"}>Add to Cart</button></Col>                             
+                </Row>
 
                 
                
 
             {/* Modal for iPhone 8 info */}
-        <Modal show={this.state.iPhone8Show} onHide={this.handleiPhone8Close}>
+        <Modal show={this.state.scarf1Show} onHide={this.handlescarf1Close}>
           <Modal.Header closeButton>
-            <Modal.Title>Apple iPhone 8</Modal.Title>
+            <Modal.Title>Scarf 1</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-              <p><span>Announced:</span> <span className="modal-float-right">2017, September</span></p>
-              <p><span>Display:</span> <span className="modal-float-right">4.7 inches, 60.9 cm2</span></p>
-              <p><span>OS:</span> <span className="modal-float-right">iOS 11, Upgradable</span></p>
-              <p><span>Memory:</span> <span className="modal-float-right">64/256 GB, 2GB RAM</span></p>
-              <p><span>Battery:</span> <span className="modal-float-right">Li-Ion 1821mAh</span></p>
-              <p><span>Price:</span> <span className="modal-float-right">$849</span></p>
+              <p><span>Material:</span> <span className="modal-float-right">100% Silk</span></p>
+              <p><span>Origin:</span> <span className="modal-float-right">Bogota</span></p>
+              <p><span>Designer:</span> <span className="modal-float-right">Hermes</span></p>
+              <p><span>Season:</span> <span className="modal-float-right">Fall 2018</span></p>
+              <p><span>Retail Price:</span> <span className="modal-float-right">$8490</span></p>
 
 
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="primary" onClick={this.handleiPhone8Close} className="margin-button">
+            <Button variant="primary" onClick={this.handlescarf1Close} className="margin-button">
               Close
             </Button>
           </Modal.Footer>
         </Modal>
 
         {/* Modal for iPhone x */}
-        <Modal show={this.state.iPhoneXShow} onHide={this.handleiPhoneXClose}>
+        <Modal show={this.state.scarf2Show} onHide={this.handlescarf2Close}>
           <Modal.Header closeButton>
-            <Modal.Title>Apple iPhone X</Modal.Title>
+            <Modal.Title>Scarf 2</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-              <p><span>Announced:</span> <span className="modal-float-right">2017, September</span></p>
-              <p><span>Display:</span> <span className="modal-float-right">5.8 inches, 84.4 cm2</span></p>
-              <p><span>OS:</span> <span className="modal-float-right">iOS 11.1.1, upgradable</span></p>
-              <p><span>Memory:</span> <span className="modal-float-right">64/256 GB, 3 GB RAM</span></p>
-              <p><span>Battery:</span> <span className="modal-float-right">Li-Ion 2716 mAh</span></p>
-              <p><span>Price:</span> <span className="modal-float-right">$1149</span></p>
+          <p><span>Material:</span> <span className="modal-float-right">100% Silk</span></p>
+              <p><span>Origin:</span> <span className="modal-float-right">Bogota</span></p>
+              <p><span>Designer:</span> <span className="modal-float-right">Hermes</span></p>
+              <p><span>Season:</span> <span className="modal-float-right">Fall 2018</span></p>
+              <p><span>Retail Price:</span> <span className="modal-float-right">$8490</span></p>
 
 
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="primary" onClick={this.handleiPhoneXClose} className="margin-button">
+            <Button variant="primary" onClick={this.handlescarf2Close} className="margin-button">
               Close
             </Button>
           </Modal.Footer>
         </Modal>
 
          {/* Modal for iPhone xs */}
-         <Modal show={this.state.iPhoneXSShow} onHide={this.handleiPhoneXSClose}>
+         <Modal show={this.state.scarf3Show} onHide={this.handlescarf3Close}>
           <Modal.Header closeButton>
-            <Modal.Title>Apple iPhone XS</Modal.Title>
+            <Modal.Title>Scarf 3</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-              <p><span>Announced:</span> <span className="modal-float-right">2018, September</span></p>
-              <p><span>Display:</span> <span className="modal-float-right">5.8 inches, 84.4 cm2</span></p>
-              <p><span>OS:</span> <span className="modal-float-right">iOS 12, upgradable</span></p>
-              <p><span>Memory:</span> <span className="modal-float-right">64/256/512 GB,4GBRAM</span></p>
-              <p><span>Battery:</span> <span className="modal-float-right">Li-Ion 2658 mAh</span></p>
-              <p><span>Price:</span> <span className="modal-float-right">$1449</span></p>
+          <p><span>Material:</span> <span className="modal-float-right">100% Silk</span></p>
+              <p><span>Origin:</span> <span className="modal-float-right">Bogota</span></p>
+              <p><span>Designer:</span> <span className="modal-float-right">Hermes</span></p>
+              <p><span>Season:</span> <span className="modal-float-right">Fall 2018</span></p>
+              <p><span>Retail Price:</span> <span className="modal-float-right">$8490</span></p>
 
 
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="primary" onClick={this.handleiPhoneXSClose} className="margin-button">
+            <Button variant="primary" onClick={this.handlescarf3Close} className="margin-button">
               Close
             </Button>
           </Modal.Footer>
         </Modal>
 
+        <Modal show={this.state.scarf4Show} onHide={this.handlescarf4Close}>
+          <Modal.Header closeButton>
+            <Modal.Title>Scarf 4</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+          <p><span>Material:</span> <span className="modal-float-right">100% Silk</span></p>
+              <p><span>Origin:</span> <span className="modal-float-right">Bogota</span></p>
+              <p><span>Designer:</span> <span className="modal-float-right">Hermes</span></p>
+              <p><span>Season:</span> <span className="modal-float-right">Fall 2018</span></p>
+              <p><span>Retail Price:</span> <span className="modal-float-right">$8490</span></p>
 
-                </div>
+
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="primary" onClick={this.handlescarf4Close} className="margin-button">
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+
+        <Modal show={this.state.scarf5Show} onHide={this.handlescarf5Close}>
+          <Modal.Header closeButton>
+            <Modal.Title>Scarf 5</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+          <p><span>Material:</span> <span className="modal-float-right">100% Silk</span></p>
+              <p><span>Origin:</span> <span className="modal-float-right">Bogota</span></p>
+              <p><span>Designer:</span> <span className="modal-float-right">Hermes</span></p>
+              <p><span>Season:</span> <span className="modal-float-right">Fall 2018</span></p>
+              <p><span>Retail Price:</span> <span className="modal-float-right">$8490</span></p>
+
+
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="primary" onClick={this.handlescarf5Close} className="margin-button">
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+
+                </Container>
+                </>
         )}
 }
 

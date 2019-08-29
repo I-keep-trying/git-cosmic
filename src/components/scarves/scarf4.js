@@ -2,11 +2,11 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-const Iphone8 = () => (
+const Scarf4 = () => (
   <StaticQuery
     query={graphql`
       query {
-        placeholderImage: file(relativePath: { eq: "apple-iphone-8-plus-0.jpg" }) {
+        placeholderImage: file(relativePath: { eq: "scarf4.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 300) {
               ...GatsbyImageSharpFluid
@@ -19,4 +19,4 @@ const Iphone8 = () => (
   />
   
 )
-    export default Iphone8
+    export default Scarf4

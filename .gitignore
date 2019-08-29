@@ -58,4 +58,5 @@ typings/
 .cache/
 public
 node_modules
+bucket.json
 
